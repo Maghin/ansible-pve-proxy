@@ -1,0 +1,9 @@
+---
+# tasks file for pve-proxy
+
+- name: Create default configuration for pveproxy
+  template:
+    src: "pveproxy.j2"
+    dest: "/etc/default/pveproxy"
+  notify: pveproxy restart
+  when: pve_pveproxy_restrict_webadmin
